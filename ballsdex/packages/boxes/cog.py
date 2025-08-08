@@ -114,7 +114,7 @@ class Claim(commands.GroupCog, name="packs"):
         owned_ids = set(
             await BallInstance.filter(player=player).values_list("ball__id", flat=True)
         )
-        all_balls = await Ball.filter(rarity__gte=0.1, rarity__lte=30.0, enabled=True).all()
+        all_balls = await Ball.filter(rarity__gte=0.03, rarity__lte=30.0, enabled=True).all()
 
         if not all_balls:
             return None
