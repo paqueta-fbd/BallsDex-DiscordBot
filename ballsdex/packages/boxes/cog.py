@@ -122,7 +122,7 @@ class Claim(commands.GroupCog, name="packs"):
         weighted_choices = []
         for ball in all_balls:
             # base weight based on ownership
-            base_weight = 1 if ball.id in owned_ids else 5
+            base_weight = 1 if ball.id in owned_ids else 1
 
             # rarity weight according to your tiers
             if 5.0 <= ball.rarity <= 30.0:
@@ -217,7 +217,7 @@ class Claim(commands.GroupCog, name="packs"):
             if ball.id in owned_ids:
                 base_weight = 1
             else:
-                base_weight = 5
+                base_weight = 1
 
             # Explicit rarity weighting
             if ball.rarity >= 4.5:  # very common
