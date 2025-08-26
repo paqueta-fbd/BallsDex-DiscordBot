@@ -573,7 +573,7 @@ class Claim(commands.GroupCog, name="packs"):
         file.close()
 
     @app_commands.command(name="multipackly", description="Claim multiple footballers from the multipackly!")
-    @app_commands.describe(packs="Number of packs to open (1-20)")
+    @app_commands.describe(packs="Number of packs to open (1-100)")
     @app_commands.checks.cooldown(1, 25, key=lambda i: i.user.id)
     async def multipackly(self, interaction: discord.Interaction, packs: int):
         user_id = str(interaction.user.id)
@@ -591,9 +591,9 @@ class Claim(commands.GroupCog, name="packs"):
             wallet_balance[user_id] = 1
 
         # Validate pack number
-        if packs < 1 or packs > 20:
+        if packs < 1 or packs > 100:
             await interaction.response.send_message(
-                "You can only open between 1 and 20 packs!",
+                "You can only open between 1 and 100 packs!",
                 ephemeral=True
             )
             return
